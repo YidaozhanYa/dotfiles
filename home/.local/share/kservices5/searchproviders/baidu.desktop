@@ -1,0 +1,7 @@
+[Desktop Entry]
+Charset=
+Hidden=false
+Keys=百度
+Name=百度
+Query=https://www.baidu.com/s?wd=\\{@}
+Type=Service

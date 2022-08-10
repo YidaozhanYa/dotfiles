@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin,application/x-executable,application/x-ms-dos-executable,
+Actions=vulkan-intel;
+
+[Desktop Action vulkan-intel]
+Name=Open with Intel graphics
+Name[zh_CN]=使用核芯显卡运行
+Icon=optimus-indicator-intel
+Exec=VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json:/usr/share/vulkan/icd.d/intel_icd.i686.json kioclient exec %F
+

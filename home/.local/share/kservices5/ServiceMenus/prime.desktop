@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin,application/x-executable,application/x-ms-dos-executable,
+Actions=prime;
+
+[Desktop Action prime]
+Name=Open with NVIDIA graphics
+Name[zh_CN]=使用独立显卡运行
+Icon=optimus-indicator-nvidia
+Exec=VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json prime-run kioclient exec %F
+

@@ -1,0 +1,13 @@
+INPUT_METHOD=fcitx5
+GTK_IM_MODULE=fcitx5
+QT_IM_MODULE=fcitx5
+SDL_IM_MODULE=fcitx
+GLFW_IM_MODULE=ibus
+XMODIFIERS=@im=fcitx
+VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json:/usr/share/vulkan/icd.d/intel_icd.i686.json
+#LIBVA_DRIVER_NAME=nvidia
+#VDPAU_DRIVER=va_gl
+AUR_GITHUB_MODE=mirror
+MOZ_USE_XINPUT2=1
+mesa_glthread=true
+MOZ_DISABLE_RDD_SANDBOX=1

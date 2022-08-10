@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/usr/bin/mkdir -p /dev/shm/下载
+Icon=
+Name=自动创建下载文件夹
+Path=
+Terminal=False
+Type=Application

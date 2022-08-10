@@ -1,0 +1,8 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = discover
+[Action]
+When = PostTransaction
+Exec = rm /etc/xdg/autostart/org.kde.discover.notifier.desktop

@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = lsp-plugins
+
+[Action]
+When = PostTransaction
+Exec = /usr/bin/bash -c 'rm /usr/share/applications/in.lsp_plug*.desktop'
+

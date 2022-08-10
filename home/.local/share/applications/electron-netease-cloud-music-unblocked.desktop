@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=ElectronNCM Unblocked
+Name[zh_CN]=ElectronNCM Unblocked
+Name[zh_TW]=ElectronNCM Unblocked
+Comment=UNOFFICIAL client for music.163.com
+Comment[zh_CN]=网易云音乐非官方客户端
+Comment[zh_TW]=網易雲音樂非官方用戶端
+Icon=ncm-electron
+Exec=/home/yidaozhan/.local/bin/electron-netease-cloud-music-unblock-enhanced
+Categories=AudioVideo;Player;

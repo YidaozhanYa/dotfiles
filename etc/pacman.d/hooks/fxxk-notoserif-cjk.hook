@@ -1,0 +1,8 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = noto-fonts-cjk
+[Action]
+When = PostTransaction
+Exec = rename 'NotoSerif' '.NotoSerif' /usr/share/fonts/noto-cjk/NotoSerif*.ttc

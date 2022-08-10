@@ -1,0 +1,25 @@
+[Desktop Entry]
+Categories=Game;Emulator;GTK;
+Comment[zh_CN]=使用 C# 编写的实验性任天堂 Switch 模拟器
+Comment=使用 C# 编写的实验性任天堂 Switch 模拟器
+Exec=env __GL_THREADED_OPTIMIZATIONS=0 __GL_SYNC_TO_VBLANK=0 GDK_BACKEND=x11 prime-run gamemoderun ryujinx %f
+GenericName[zh_CN]=任天堂 Switch 模拟器
+GenericName=任天堂 Switch 模拟器
+Icon=ryujinx
+Keywords=Switch;Nintendo;Emulator;
+MimeType=application/x-nx-xci;application/x-nx-nsp;application/x-nx-nso;application/x-nx-nro;
+Name[zh_CN]=Ryujinx
+Name=Ryujinx
+Path=
+PrefersNonDefaultGPU=true
+StartupNotify=true
+StartupWMClass=Ryujinx
+Terminal=false
+TerminalOptions=
+TryExec=ryujinx
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

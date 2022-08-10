@@ -1,0 +1,31 @@
+[CompactMode]
+FontWeight=50
+PreviewSize=16
+
+[DetailsMode]
+FontWeight=50
+LeadingPadding=0
+PreviewSize=16
+
+[General]
+ConfirmClosingMultipleTabs=false
+RememberOpenedTabs=false
+ShowSelectionToggle=false
+ShowZoomSlider=false
+Version=201
+
+[IconsMode]
+FontWeight=50
+PreviewSize=96
+
+[PlacesPanel]
+IconSize=16
+
+[PreviewSettings]
+Plugins=appimagethumbnail,djvuthumbnail,exrthumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,cursorthumbnail,imagethumbnail,fontthumbnail,comicbookthumbnail,ebookthumbnail,ffmpegthumbs,audiothumbnail
+
+[Search]
+What=Content
+
+[Shortcut Schemes]
+Current Scheme=Default

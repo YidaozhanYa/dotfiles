@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name[zh_CN]=scrcpy
+Icon=scrcpy
+Exec=/usr/binscrcpy -K -t -b 10M -m 1920 -S
+Terminal=false

@@ -1,0 +1,19 @@
+[Desktop Entry]
+Categories=Game;Emulator;Qt;
+Comment=任天堂 Switch 模拟器
+Exec=env QT_QPA_PLATFORM=xcb vblank_mode=0 __GL_THREADED_OPTIMIZATIONS=1 yuzu %f
+GenericName=Switch 模拟器
+Icon=org.yuzu_emu.yuzu
+Keywords=Nintendo;Switch;
+MimeType=application/x-nx-nro;application/x-nx-nso;application/x-nx-nsp;application/x-nx-xci;
+Name=yuzu
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+TryExec=yuzu
+Type=Application
+Version=1.0
+X-KDE-SubstituteUID=false
+X-KDE-Username=

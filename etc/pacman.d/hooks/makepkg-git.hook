@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = pacman
+
+[Action]
+When = PostTransaction
+Exec = /usr/bin/bash -c 'cp /home/yidaozhan/.local/share/makepkg/source/git.sh /usr/share/makepkg/source/git.sh'
+

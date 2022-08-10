@@ -1,0 +1,8 @@
+#!/bin/bash
+URL="$@"
+#URL=${URL/github.com/r.ydz1.gq/https:\/\/github.com}
+URL=${URL/github.com/hub.fastgit.xyz}
+URL=${URL/git:\/\//https:\/\/}
+URL=${URL/git+https:\/\//https:\/\/}
+echo "git 命令行被替换为 ${URL}"
+git ${URL}

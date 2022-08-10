@@ -1,0 +1,8 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = linux-cachyos-bore
+[Action]
+When = PostTransaction
+Exec = /usr/bin/bash -c 'LANG=C grub-mkconfig -o /boot/grub/grub.cfg'

@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = icalingua++
+
+[Action]
+When = PostTransaction
+Exec = /usr/bin/bash /home/yidaozhan/.local/bin/hook-delete-icalingua-fonts.sh
+

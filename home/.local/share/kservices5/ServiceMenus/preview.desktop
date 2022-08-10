@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin,text/*,image/*,application/*,audio/*,video/*
+Actions=preview;
+
+[Desktop Action preview]
+Name=Preview
+Name[zh_CN]=预览
+Icon=document-preview
+Exec=sushi %F
+

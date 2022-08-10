@@ -1,0 +1,56 @@
+#!/bin/bash
+
+if [[ "$AUR_GITHUB_MODE" = "" ]];then
+    GITHUB_MODE="mirror"
+else
+    GITHUB_MODE="$AUR_GITHUB_MODE"
+fi
+# mirror (使用镜像站) 或 cloudflare (使用 CloudFlare 反代)，填写其它为直接下载
+CLOUDFLARE_PROXY_URL_PREFIX="https://aya1.top/"
+
+DOMAIN=`echo $2 | cut -f3 -d'/'`; # 获取域名及后半部分
+OTHERS=`echo $2 | cut -f4- -d'/'`;
+
+case "$DOMAIN" in
+
+    "github.com")
+    if [[ "$GITHUB_MODE" == "mirror" ]];then
+        if [[ "$OTHERS" =~ "raw" ]];then
+            url="https://www.githubs.cn/raw-githubusercontent/"${OTHERS/\/raw\//\/}; # 使用 GitHub 中文论坛镜像
+        elif [[ "$OTHERS" =~ "pull" ]];then # 必须用反代下载 pull request 补丁
+            url="${CLOUDFLARE_PROXY_URL_PREFIX}$2";
+        elif [[ "$OTHERS" =~ "patch" ]];then # 必须用反代下载 pull request 补丁
+            url="${CLOUDFLARE_PROXY_URL_PREFIX}$2";
+        else
+            url="https://download.fastgit.org/"${OTHERS}; # 使用 FastGit 镜像
+        fi
+        echo "从镜像站下载文件 $url";
+    elif [[ "$GITHUB_MODE" == "cloudflare" ]];then
+        url="${CLOUDFLARE_PROXY_URL_PREFIX}$2";
+        echo "从 CloudFlare 反代下载文件 $url";
+    else
+        url=$2; # 直接下载
+    fi
+    /usr/bin/curl -gqb "" -fLC - --retry 3 --retry-delay 3 -o $1 $url;
+    ;;
+
+    "raw.githubusercontent.com")
+    if [[ "$GITHUB_MODE" == "mirror" ]];then
+        url="https://www.githubs.cn/raw-githubusercontent/"$OTHERS;
+        echo "从镜像站下载 $url";
+    elif [[ "$GITHUB_MODE" == "cloudflare" ]];then
+        url="${CLOUDFLARE_PROXY_URL_PREFIX}$2";
+        echo "从 CloudFlare 反代下载文件 $url";
+    else
+        url=$2; # 直接下载
+    /usr/bin/curl -gqb "" -fLC - --retry 3 --retry-delay 3 -o $1 $url;
+    fi
+    ;;
+
+    *) # 其它时候使用多线程下载
+    url=$2;
+    echo "多线程下载 $url";
+    /usr/bin/aria2c -x4 -s10 -j10 --out=$1 $url; # 线程数量之类的自行更改
+    ;;
+
+esac
