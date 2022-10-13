@@ -1,0 +1,2 @@
+#!/bin/bash
+while true; do /usr/bin/latte-dock --replace; done
