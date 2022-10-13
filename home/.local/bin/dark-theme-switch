@@ -42,5 +42,5 @@ else
 fi
 
 python -c 'from PyQt5 import QtDBus as qd; StyleChanged = 2; SETTINGS_STYLE = 7; message: qd.QDBusMessage = qd.QDBusMessage.createSignal("/KGlobalSettings", "org.kde.KGlobalSettings","notifyChange"); message.setArguments({StyleChanged, SETTINGS_STYLE}); qd.QDBusConnection.sessionBus().send(message)'  # 重新加载 Qt Widgets 主题
-qdbus org.kde.kwin /KWin reconfigure  # 重新加载 KWin
+qdbus org.kde.KWin /KWin reconfigure  # 重新加载 KWin
 latte-dock --replace &  # 重新加载 Latte Dock
