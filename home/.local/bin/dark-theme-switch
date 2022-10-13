@@ -18,7 +18,7 @@ CURRENT_KVANTUM_THEME="$(kreadconfig5 --group "General" --file "$XDG_CONFIG_HOME
 if [ "$CURRENT_KVANTUM_THEME" == "$LIGHT_KVANTUM_THEME" ]; then
     plasma-apply-colorscheme "$DARK_COLOR_SCHEME"
     /usr/lib/plasma-changeicons "$DARK_ICON_THEME"
-    gsettings set org.gnome.desktop.interface gtk-theme "$DARK_GTK_SCHEME"
+    gsettings set org.gnome.desktop.interface gtk-theme "$DARK_GTK_THEME"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
     cp "$HOME/.themes/$DARK_GTK4_SCHEME/gtk-4.0/gtk.css" "$XDG_CONFIG_HOME/gtk-4.0/gtk.css"
     kvantummanager --set "$DARK_KVANTUM_THEME"
@@ -30,7 +30,7 @@ if [ "$CURRENT_KVANTUM_THEME" == "$LIGHT_KVANTUM_THEME" ]; then
 else
     plasma-apply-colorscheme "$LIGHT_COLOR_SCHEME"
     /usr/lib/plasma-changeicons "$LIGHT_ICON_THEME"
-    gsettings set org.gnome.desktop.interface gtk-theme "$LIGHT_GTK_SCHEME"
+    gsettings set org.gnome.desktop.interface gtk-theme "$LIGHT_GTK_THEME"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
     cp "$HOME/.themes/$LIGHT_GTK4_THEME/gtk-4.0/gtk.css" "$XDG_CONFIG_HOME/gtk-4.0/gtk.css"
     kvantummanager --set "$LIGHT_KVANTUM_THEME"
