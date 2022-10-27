@@ -1,10 +1,3 @@
-## the detailed meaning of the below three variable can be found in `man zshparam`.
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]] {
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-}
 ########
 # Note
 # If you find a permission problem with zsh-related directories, then try running `compaudit | xargs chmod g-w,o-w`
@@ -13,11 +6,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 # Set env
 path=(~/.local/bin $path)
 typeset -x XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+#typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 TMOE_ZSH_DIR="${HOME}/.config/tmoe-zsh"
 TMOE_ZSH_GIT_DIR="${TMOE_ZSH_DIR}/git"
 TMOE_ZSH_TOOL_DIR="${TMOE_ZSH_GIT_DIR}/tools"
-ZINIT_THEME_DIR="${HOME}/.zinit/themes/_local"
+#ZINIT_THEME_DIR="${HOME}/.zinit/themes/_local"
 ########
 # Setopt
 #setopt correct
@@ -71,10 +64,10 @@ zinit ice wait lucid pick"fast-syntax-highlighting.plugin.zsh" atinit"ZINIT[COMP
 
 zinit ice wait lucid pick"zsh-autosuggestions.zsh" atload'_zsh_autosuggest_start' && zinit light _local/zsh-autosuggestions #自动建议插件 It suggests commands as you type based on history and completions.
 
-zinit ice lucid wait="2" pick"sudo.plugin.zsh" && zinit light _local/sudo #Easily prefix your current or previous commands with `sudo` by pressing <kbd>esc</kbd> twice 按两次ESC键,可以在当前命令前加上sudo前缀  
+zinit ice lucid wait="2" pick"sudo.plugin.zsh" && zinit light _local/sudo #Easily prefix your current or previous commands with `sudo` by pressing <kbd>esc</kbd> twice 按两次ESC键,可以在当前命令前加上sudo前缀
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # powerlevel10k的prompt
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # powerlevel10k的prompt
 #######
 # ALIASES
 alias ...=../..
@@ -166,8 +159,7 @@ export EDITOR='kate'
 alias pm="sudo pacman"
 alias svim="sudo vim"
 alias se="sudoedit"
-alias ibm="ibmcloud cf"
-## CPU tkg内核acpi调速器
+## CPU调速器
 alias performance="sudo cpupower -c all frequency-set -g performance"
 alias powersave="sudo cpupower -c all frequency-set -g powersave"
 alias ondemand="sudo cpupower -c all frequency-set -g ondemand"
@@ -177,19 +169,9 @@ alias schedutil="sudo cpupower -c all frequency-set -g schedutil"
 alias cpustatus="printf 'CPU模式' && cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor && printf '\nCPU频率' && cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq && echo 'KHz'"
 ## freq 查看cpu频率
 alias freq="watch grep \'cpu MHz\' /proc/cpuinfo"
-## rkwin 重启 kwin
-## 有时候 kwin 会卡比，直接重启解决
-alias rkwin="kwin_x11 --replace &"
 ## 启用和禁用摄像头，如果想抄作业的话记得改设备号
 alias enable-camera="echo '1-5' | sudo tee /sys/bus/usb/drivers/usb/bind"
 alias disable-camera="echo '1-5' | sudo tee /sys/bus/usb/drivers/usb/unbind"
-## ichown 将当前目录所有文件所有权改为自己
-## 用于解决把NTFS分区的东西复制来的时候没有所有权的情况
-alias ichown="sudo chown -R yidaozhan:yidaozhan ."
-##ibm
-#U2FsdGVkX1/GiZPhCyrm4d1Hne+dbcJ2trDPLjVeHmFNCbzivsOlUu4Ko0gqx9yc
-#Impf7X/rBOSGlvgKRuVq0xUoumaSjWOucgCeoWSBH0okVBcCxPFR7z6ad/BQa5De
-#TusYhE06QR/M/uEougyJvahg0V13YDl9qsvcgl7aHeLNFqz9LQRWmA==
 alias ls="exa --icons -G -l --no-permissions --no-user --no-time"
 alias ll="exa --icons -l --no-permissions --no-user --no-time"
 ## ssh记住密码
@@ -200,19 +182,21 @@ alias poweroff="systemctl poweroff --no-wall"
 alias reboot="systemctl reboot --no-wall"
 #
 #
-alias wd=waydroid
-alias please=sudo
-#alias legendary=/opt/Heroic/resources/app.asar.unpacked/build/bin/linux/legendary
-source ~/.local/share/doc/pkgfile/command-not-found.zsh
+#source ~/.local/share/doc/pkgfile/command-not-found.zsh
 #
 ## 键盘 HOME DELETE END 纠正
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
 #zinit ice lucid wait="1" pick"fzf.plugin.zsh" && zinit light _local/fzf #This plugin enables [junegunn’s fzf](https://github.com/junegunn/fzf) fuzzy auto-completion and key bindings
-zinit ice lucid wait=1 ascompletion && zinit snippet /home/yidaozhan/.config/tmoe-zsh/git/share/completion/_zshtheme
+zinit ice lucid wait=1 ascompletion #&& zinit snippet /home/yidaozhan/.config/tmoe-zsh/git/share/completion/_zshtheme
 [[ $(command -v fzf) ]] && zinit ice lucid pick"fzf-tab.zsh" && zinit light _local/fzf-tab  #aloxaf:fzf-tab 是一个能够极大提升 zsh 补全体验的插件。它通过 hook zsh 补全系统的底层函数 compadd 来截获补全列表，从而实现了在补全命令行参数、变量、目录栈和文件时都能使用 fzf 进行选择的功能。Replace zsh's default completion selection menu with fzf!
 zinit ice lucid wait="1" pick"heroku.plugin.zsh" && zinit light _local/heroku #This plugin provides completion for the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
 zinit ice lucid wait="1" pick"history.plugin.zsh" && zinit light _local/history #Provides a couple of convenient aliases for using the `history` command to examine your command line history.
 zinit ice lucid wait="1" pick"yarn.plugin.zsh" && zinit light _local/yarn && zinit ice lucid wait="1" as"completion" && zinit snippet /home/yidaozhan/.zinit/plugins/_local---yarn/_yarn  #This plugin adds completion for the [Yarn package manager](https://yarnpkg.com/en/),-as well as some aliases for common Yarn commands.-
 
+#eval "$(antidot init)"
+#___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+zinit ice lucid wait=1 ascompletion
+
+eval "$(starship init zsh)"
