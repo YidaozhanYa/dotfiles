@@ -199,4 +199,15 @@ zinit ice lucid wait="1" pick"yarn.plugin.zsh" && zinit light _local/yarn && zin
 #___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 zinit ice lucid wait=1 ascompletion
 
+function set_win_title(){
+DIR2NAME="$(basename "$(dirname "$PWD")")"
+DIRNAME="$(basename "$PWD")"
+    if [ "$DIRNAME" = "$USER" ]; then
+        echo -ne "\033]0; 终端 \007"
+    else
+        echo -ne "\033]0; .../$DIR2NAME/$DIRNAME - 终端 \007"
+    fi
+}
+precmd_functions+=(set_win_title)
+
 eval "$(starship init zsh)"
