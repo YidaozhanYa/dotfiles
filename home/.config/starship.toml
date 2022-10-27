@@ -130,9 +130,17 @@ read_only = " "
 truncation_symbol = ".../"
 home_symbol = ""
 format = "[$path]($style)[$read_only]($read_only_style) "
-style = "cyan"
-repo_root_style = "bold blue"
+style = "blue"
+repo_root_style = "bold bright-blue"
 use_os_path_sep = false
+
+[directory.substitutions]
+"文档" = ""
+"下载" = ""
+"音乐" = ""
+"图片" = ""
+"仓库" = ""
+"游戏" = ""
 
 [elixir]
 symbol = " "
