@@ -1,2 +1,0 @@
-export LIBVIRT_DEFAULT_URI=qemu:///system
-export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json:/usr/share/vulkan/icd.d/intel_icd.i686.json
