@@ -37,7 +37,7 @@ function finalize() {
 }
 
 if [ "$1" == "dark" ]; then dark_theme; finalize; exit; fi
-if [ "$1" == "light" ]; then light_theme; finnalize; exit; fi
+if [ "$1" == "light" ]; then light_theme; finalize; exit; fi
 
 CURRENT_KVANTUM_THEME="$(kreadconfig5 --group "General" --file "$XDG_CONFIG_HOME/Kvantum/kvantum.kvconfig" --key "theme")"
 
