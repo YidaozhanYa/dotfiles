@@ -8,39 +8,44 @@ LIGHT_GTK4_THEME="Fluent-round-Light"  # 亮色 GTK4 主题
 DARK_GTK4_THEME="Fluent-round-Dark"  # 暗色 GTK4 主题
 LIGHT_COLOR_SCHEME="FluentLight"  # 亮色配色方案
 DARK_COLOR_SCHEME="FluentDark"  # 暗色配色方案
-DARK_ICON_THEME="Win10Sur-blue-dark"  # 暗色图标主题
-LIGHT_ICON_THEME="Win10Sur-blue"   # 暗色图标主题
-LIGHT_JETBRAINS_THEME="Solarized Light (4lex4)"  # 亮色 JetBrains IDE 主题
-DARK_JETBRAINS_THEME="Solarized Dark (4lex4)"  # 暗色 JetBrains IDE 主题
+DARK_ICON_THEME="Win10Sur-dark"  # 暗色图标主题
+LIGHT_ICON_THEME="Win10Sur"   # 暗色图标主题
 
-CURRENT_KVANTUM_THEME="$(kreadconfig5 --group "General" --file "$XDG_CONFIG_HOME/Kvantum/kvantum.kvconfig" --key "theme")"
 
-if [ "$CURRENT_KVANTUM_THEME" == "$LIGHT_KVANTUM_THEME" ]; then
+function dark_theme() {
     plasma-apply-colorscheme "$DARK_COLOR_SCHEME"
     /usr/lib/plasma-changeicons "$DARK_ICON_THEME"
     gsettings set org.gnome.desktop.interface gtk-theme "$DARK_GTK_THEME"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
     cp "$HOME/.themes/$DARK_GTK4_SCHEME/gtk-4.0/gtk.css" "$XDG_CONFIG_HOME/gtk-4.0/gtk.css"
     kvantummanager --set "$DARK_KVANTUM_THEME"
-    pushd "$XDG_CONFIG_HOME/JetBrains"
-        for IDE in *; do
-            sed -i "s/\"$LIGHT_JETBRAINS_THEME\"/\"$DARK_JETBRAINS_THEME\"/" "$IDE/options/colors.scheme.xml"
-        done
-    popd
-else
+}
+
+function light_theme() {
     plasma-apply-colorscheme "$LIGHT_COLOR_SCHEME"
     /usr/lib/plasma-changeicons "$LIGHT_ICON_THEME"
     gsettings set org.gnome.desktop.interface gtk-theme "$LIGHT_GTK_THEME"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
     cp "$HOME/.themes/$LIGHT_GTK4_THEME/gtk-4.0/gtk.css" "$XDG_CONFIG_HOME/gtk-4.0/gtk.css"
     kvantummanager --set "$LIGHT_KVANTUM_THEME"
-    pushd "$XDG_CONFIG_HOME/JetBrains"
-        for IDE in *; do
-            sed -i "s/\"$DARK_JETBRAINS_THEME\"/\"$LIGHT_JETBRAINS_THEME\"/" "$IDE/options/colors.scheme.xml"
-        done
-    popd
+}
+
+function finalize() {
+    python -c 'from PyQt5 import QtDBus as qd; StyleChanged = 2; SETTINGS_STYLE = 7; message: qd.QDBusMessage = qd.QDBusMessage.createSignal("/KGlobalSettings", "org.kde.KGlobalSettings","notifyChange"); message.setArguments({StyleChanged, SETTINGS_STYLE}); qd.QDBusConnection.sessionBus().send(message)'  # 重新加载 Qt Widgets 主题
+    qdbus org.kde.KWin /KWin reconfigure  # 重新加载 KWin
+    # latte-dock --replace &  # 重新加载 Latte Dock
+}
+
+if [ "$1" == "dark" ]; then dark_theme; finalize; exit; fi
+if [ "$1" == "light" ]; then light_theme; finnalize; exit; fi
+
+CURRENT_KVANTUM_THEME="$(kreadconfig5 --group "General" --file "$XDG_CONFIG_HOME/Kvantum/kvantum.kvconfig" --key "theme")"
+
+if [ "$CURRENT_KVANTUM_THEME" == "$LIGHT_KVANTUM_THEME" ]; then
+    dark_theme
+else
+    light_theme
 fi
 
-python -c 'from PyQt5 import QtDBus as qd; StyleChanged = 2; SETTINGS_STYLE = 7; message: qd.QDBusMessage = qd.QDBusMessage.createSignal("/KGlobalSettings", "org.kde.KGlobalSettings","notifyChange"); message.setArguments({StyleChanged, SETTINGS_STYLE}); qd.QDBusConnection.sessionBus().send(message)'  # 重新加载 Qt Widgets 主题
-qdbus org.kde.KWin /KWin reconfigure  # 重新加载 KWin
-latte-dock --replace &  # 重新加载 Latte Dock
+finalize
+
