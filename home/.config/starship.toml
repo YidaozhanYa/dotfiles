@@ -149,8 +149,14 @@ format = ' \[[$symbol($version)]($style)\]'
 [erlang]
 format = ' \[[$symbol($version)]($style)\]'
 
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
 [gcloud]
-format = ' \[[$symbol$account(@$domain)(\($region\))]($style)\]'
+disabled = true
 
 [git_branch]
 symbol = " "
