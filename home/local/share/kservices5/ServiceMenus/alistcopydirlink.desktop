@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Service
+Name=AlistCopyLink
+X-KDE-Protocol=webdav
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+Icon=link
+Actions=copydirlink;
+
+[Desktop Action copydirlink]
+Name=Copy Folder Link
+Name[zh_CN]=复制文件夹链接
+Icon=link
+Exec=echo -n "$(python -c 'from urllib.parse import quote; print("https://file.yidaozhan.top" + quote("%u".split("webdav://localhost:5244/dav")[1]))')" | xclip -sel clipboard -i; notify-send -a '远程文件夹' '链接复制完毕。' -i link
