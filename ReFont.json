@@ -1,0 +1,20 @@
+[{
+	"name": "",
+	"type": "disabled",
+	"use": [""]
+}, {
+	"name": "HarmonyOS",
+	"type": "preinstalled",
+	"use": ["HarmonyOS Sans SC"],
+	"weight": "normal"
+}, {
+	"name": "HarmonyOS + Icons",
+	"type": "preinstalled",
+	"use": ["HarmonyOS Sans SC", "FabricMDL2Icons", "FabricMDL2Icons-18", "Emoji Icon"],
+	"weight": "normal"
+}, {
+	"name": "sans-serif",
+	"type": "preinstalled",
+	"use": ["sans-serif"],
+	"weight": "normal"
+}]
