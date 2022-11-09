@@ -30,6 +30,8 @@ div#app {
     --panel-item-bg: rgba(255,255,255,0.5);
     --chat-content-bg-color: rgba(255,255,255,0.4)!important;
     --panel-background: rgba(255,255,255,0.6)!important;
+    --chat-message-bg-color-reply: rgb(0 0 0 / 3%);
+    --chat-message-bg-color-deleted: #dadfe285;
 }
 
 .vac-message-card.vac-message-current {
@@ -168,4 +170,42 @@ div.head[data-v-1d0d9516] { /*表情面板*/
     position: absolute;
     backdrop-filter: blur(5px);
     bottom: 0px;
+}
+
+.vac-message-current * {
+    --chat-message-color-timestamp: #878787!important;
+}
+
+.getting-history[data-v-cac5798a] {
+    visibility: hidden;
+}
+
+.vac-icon-last-message {
+    top: 75px;
+    right: 5px;
+    transform: scale(0.7);
+}
+
+.vac-icon-scroll {
+    right: 5px;
+    transform: scale(0.7);
+    margin-bottom: -5px;
+}
+
+div.entry[data-v-7bdba32c]{
+    padding: 9px 0;
+}
+
+.el-dialog__body {
+    padding: 0 20px 20px 20px;
+}
+
+.groupmember-head-container {
+    padding-bottom: 15px;
+}
+
+.vac-container-scroll {
+    background: none;
+    margin-right: 8px;
+    margin-left: 8px;
 }
