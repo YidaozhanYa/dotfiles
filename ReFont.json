@@ -10,7 +10,7 @@
 }, {
 	"name": "HarmonyOS + Icons",
 	"type": "preinstalled",
-	"use": ["HarmonyOS Sans SC", "Material Icons Extended", "FabricMDL2Icons", "FabricMDL2Icons-18", "Emoji Icon", "Font Awesome 5 Free"],
+	"use": ["HarmonyOS Sans SC", "Material Icons Extended", "FabricMDL2Icons", "FabricMDL2Icons-18", "Emoji Icon", "simple-line-icons", "Font\\ Awesome\\ 5\\ Free"],
 	"weight": "normal"
 }, {
 	"name": "sans-serif",
