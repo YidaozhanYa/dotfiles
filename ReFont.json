@@ -10,7 +10,7 @@
 }, {
 	"name": "HarmonyOS + Icons",
 	"type": "preinstalled",
-	"use": ["HarmonyOS Sans SC","Material Icons", "Material Icons Extended",  "FabricMDL2Icons", "FabricMDL2Icons-18", "FluentSystemIcons", "FluentSystemIconsFilled", "FluentSystemIconsRegular", "ShellFabricMDL2Icons", "ShellFabricMDL2IconsLite", "controlIcons", "FabricMDL2Icons-7", "Emoji Icon", "simple-line-icons", "codicon", "Font\\ Awesome\\ 5\\ Free"],
+	"use": ["HarmonyOS Sans SC","Material Icons", "Material Icons Extended",  "FabricMDL2Icons", "FabricMDL2Icons-18", "FluentSystemIcons", "FluentSystemIconsFilled", "FluentSystemIconsRegular", "ShellFabricMDL2Icons", "ShellFabricMDL2IconsLite", "controlIcons", "FabricMDL2Icons-7", "FabricMDL2Icons-5", "Emoji Icon", "Icons", "simple-line-icons", "codicon", "ShortcodesUltimateIcons", "Font\\ Awesome\\ 5\\ Free"],
 	"weight": "normal"
 }, {
 	"name": "sans-serif",
